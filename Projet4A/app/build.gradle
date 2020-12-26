@@ -39,10 +39,10 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
-
-
+    implementation "com.google.android.material:material:1.2.1"
+    implementation  "io.mockk:mockk:1.10.2"
     // Koin for Android
-    implementation "org.koin:koin-android:$koin_version"
+        implementation "org.koin:koin-android:$koin_version"
     // Koin Android Scope features
     implementation "org.koin:koin-android-scope:$koin_version"
     // Koin Android ViewModel features

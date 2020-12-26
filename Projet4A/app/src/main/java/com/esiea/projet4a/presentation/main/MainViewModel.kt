@@ -6,29 +6,34 @@ import androidx.lifecycle.viewModelScope
 import com.esiea.projet4a.domain.entity.User
 import com.esiea.projet4a.domain.usecase.CreateUserUseCase
 import com.esiea.projet4a.domain.usecase.GetUserUseCase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers.Main as Main1
+import kotlinx.coroutines.withContext as withContext1
 
 class MainViewModel(
         val createUserUseCase: CreateUserUseCase,
         private val getUserUseCase: GetUserUseCase
 ) : ViewModel(){
 
-
-
-
-        val counter: MutableLiveData<Int> = MutableLiveData()
+        val loginLiveData: MutableLiveData<LoginStatus> = MutableLiveData()
         init{
-                counter.value = 0
+               // counter.value = 0
         }
 
-        fun onClickedIncrement(emailUser: String){
+        fun onClickedLogin(emailUser: String,password:String){
                 viewModelScope.launch(Dispatchers.IO) {
-                        createUserUseCase.invoke(User("test"))
-                        val user:User =  getUserUseCase.invoke("test")
-                        val debug = "debug"
+                       val user: User? = getUserUseCase.invoke(emailUser)
+                        val loginStatus= if(user!=null){
+                                LoginSuccess(user.email)
+                        }else{
+                                LoginError
+                        }
+                    withContext1(Main1) {
+                        loginLiveData.value = loginStatus
+                    }
+                       // val user:User =  getUserUseCase.invoke("test")
+
+
                 }
 
             //    counter.value = (counter.value ?: 0) + 1
