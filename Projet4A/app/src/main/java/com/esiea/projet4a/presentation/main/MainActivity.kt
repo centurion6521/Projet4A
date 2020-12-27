@@ -15,11 +15,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        /*setContentView(R.layout.activity_pokedex)
+        setContentView(R.layout.activity_pokedex)
         toolbar.setTitle("POKEMON LIST")
-        setSupportActionBar(toolbar)*/
+//        setSupportActionBar(toolbar)
 
-        setContentView(R.layout.activity_main)
+       /* setContentView(R.layout.activity_main)
 
         mainViewModel.loginLiveData.observe(this, Observer {
             when(it){
@@ -46,6 +46,6 @@ class MainActivity : AppCompatActivity() {
 
        /* mainViewModel.counter.observe(this, Observer {
             value -> main_text.text = value.toString()
-        }*///)
+        }*///)*/
     }
 }

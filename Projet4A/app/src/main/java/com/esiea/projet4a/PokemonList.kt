@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_pokedex.*
 import kotlinx.android.synthetic.main.fragment_poke_list.*
 
 
-class PokemonList:Fragment() {
+class PokemonList : Fragment() {
 
     internal var compositeDisposable= CompositeDisposable()
     internal var iPokemonList:IPokemonList
@@ -28,13 +28,13 @@ class PokemonList:Fragment() {
     internal lateinit var recycler_view:RecyclerView
 
     init{
-        var retrofit = RetrofitClient.instance
+        val retrofit = RetrofitClient.instance
         iPokemonList=retrofit.create(IPokemonList::class.java)
     }
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View? {
         val itemView = inflater.inflate(R.layout.fragment_poke_list,container,false)
 
         recycler_view = itemView.findViewById(R.id.pokemon_recyclerview) as RecyclerView
