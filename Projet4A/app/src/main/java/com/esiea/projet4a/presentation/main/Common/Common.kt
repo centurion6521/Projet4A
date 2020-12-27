@@ -5,6 +5,6 @@ import com.esiea.projet4a.presentation.main.PokemonList
 
 object Common {
     var pokemonList:List<Pokemon> = ArrayList()
-
+    val KEY_ENABLE_HOME ="position"
 
 }
