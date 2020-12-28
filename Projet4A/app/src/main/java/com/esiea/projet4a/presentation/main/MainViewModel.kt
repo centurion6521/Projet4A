@@ -6,13 +6,14 @@ import androidx.lifecycle.viewModelScope
 import com.esiea.projet4a.domain.entity.User
 import com.esiea.projet4a.domain.usecase.CreateUserUseCase
 import com.esiea.projet4a.domain.usecase.GetUserUseCase
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.Dispatchers.Main as Main1
 import kotlinx.coroutines.withContext as withContext1
 
 class MainViewModel(
-        val createUserUseCase: CreateUserUseCase,
-        private val getUserUseCase: GetUserUseCase
+    private val createUserUseCase: CreateUserUseCase,
+    private val getUserUseCase: GetUserUseCase
 ) : ViewModel(){
 
         val loginLiveData: MutableLiveData<LoginStatus> = MutableLiveData()
@@ -38,5 +39,18 @@ class MainViewModel(
 
             //    counter.value = (counter.value ?: 0) + 1
         }
+
+    fun onClickedCreate(emailUser: String,password:String){
+        viewModelScope.launch(Dispatchers.IO) {
+            val newUser:User = User(emailUser)
+            with(createUserUseCase) {
+                invoke(newUser)
+            }
+        }
+
+        //    counter.value = (counter.value ?: 0) + 1
+    }
+
+
 
 }

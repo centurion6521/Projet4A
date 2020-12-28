@@ -3,11 +3,10 @@ package com.esiea.projet4a.presentation.main.Adapter
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
-import android.widget.ImageView
-import android.widget.TextView
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -15,9 +14,6 @@ import com.esiea.projet4a.R
 import com.esiea.projet4a.presentation.main.Common.Common
 import com.esiea.projet4a.presentation.main.Interface.ItemClickListener
 import com.esiea.projet4a.presentation.main.Model.Pokemon
-import com.esiea.projet4a.presentation.main.PokemonList
-
-import kotlinx.android.synthetic.main.pokemon_list_item.view.*
 
 class PokemonListAdapter(internal var context: Context,
                          internal var pokemonList:List<Pokemon>):RecyclerView.Adapter<PokemonListAdapter.MyViewHolder>() {

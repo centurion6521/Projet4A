@@ -9,7 +9,6 @@ import com.esiea.projet4a.domain.usecase.CreateUserUseCase
 import com.esiea.projet4a.domain.usecase.GetUserUseCase
 import com.esiea.projet4a.presentation.main.MainViewModel
 import org.koin.android.ext.koin.androidContext
-import org.koin.core.module.Module
 import org.koin.dsl.module
 
 val presentationModule = module {

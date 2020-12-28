@@ -1,83 +1,36 @@
 package com.esiea.projet4a.presentation.main
 
-import android.content.BroadcastReceiver
-import android.content.Context
+
 import android.content.Intent
-import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.esiea.projet4a.R
-import com.esiea.projet4a.presentation.main.Common.Common
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_pokedex.*
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
 
-    val mainViewModel: MainViewModel by inject()
-
-    private val showDetail = object:BroadcastReceiver(){
-        override fun onReceive(context: Context?, intent: Intent?) {
-            if(intent!!.action!!.toString()== Common.KEY_ENABLE_HOME){
-                supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-                supportActionBar!!.setDisplayShowHomeEnabled(true)
-
-                val detailFragment= PokemonDetail.getInstance()
-                val position = intent!!.getIntExtra("position",-1)
-                val bundle =Bundle()
-                bundle.putInt("position",position)
-                detailFragment.arguments = bundle
-
-                val fragmentTransaction=supportFragmentManager.beginTransaction()
-                fragmentTransaction.replace(R.id.list_pokemon_fragment,detailFragment)
-                fragmentTransaction.addToBackStack("detail")
-                fragmentTransaction.commit()
-
-                val pokemon = Common.pokemonList[position]
-                toolbar.title = pokemon.name
-
-
-
-            }
-        }
-
-
-    }
-
+    private val mainViewModel: MainViewModel by inject()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pokedex)
-        toolbar.setTitle("POKEMON LIST")
-
-        //Broadcast register
-        LocalBroadcastManager.getInstance(this)
-            .registerReceiver(showDetail, IntentFilter(Common.KEY_ENABLE_HOME))
-
-
-
-//        setSupportActionBar(toolbar)
-
-       /* setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main)
+        //delay(1000)
 
         mainViewModel.loginLiveData.observe(this, Observer {
             when(it){
                 is LoginSuccess ->{
-                    setContentView(R.layout.activity_pokedex)
-                    toolbar.setTitle("Liste Pokemon")
-                    setSupportActionBar(toolbar)
+                    val activityIntent  =  Intent(this@MainActivity, PokemonActivity::class.java)
+                    startActivity(activityIntent)
                 }
                 LoginError -> {
                     MaterialAlertDialogBuilder(this)
                         .setTitle("Erreur")
                         .setMessage("Compte Inconnu")
-                        .setPositiveButton("ok") { dialog, which ->
+                        .setPositiveButton("ok") { dialog, _ ->
                             dialog.dismiss()
                         }
                         .show()
@@ -89,19 +42,22 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-       /* mainViewModel.counter.observe(this, Observer {
-            value -> main_text.text = value.toString()
-        }*///)*/
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item!!.itemId){
-            android.R.id.home ->{
-                toolbar.title = "POKEMON LIST"
-                supportFragmentManager.popBackStack("detail",FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                supportActionBar!!.setDisplayShowHomeEnabled(false)
-                supportActionBar!!.setDisplayHomeAsUpEnabled(false)
-            }
+        create_account__button.setOnClickListener{
+            mainViewModel.onClickedCreate(login_edit.text.toString().trim(),password_edit.text.toString())
+            MaterialAlertDialogBuilder(this)
+                .setTitle("Info")
+                .setMessage("Compte créé")
+                .setPositiveButton("ok") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .show()
+            //val activityIntent  =  Intent(this@MainActivity, PokemonActivity::class.java)
+            //startActivity(activityIntent)
+
         }
-        return true
+
+
+
     }
+
 }
