@@ -35,7 +35,7 @@ Puis appuyer sur le bouton New Account (un message d'avertissement s'affichera a
 
 ### Transition d'un Pokémon à son évolution (fonctionne aussi avec les formes précédentes)
 
-<img src="Screenshot/SwitchEvolution.PNG" width="535">
+<img src="Screenshot/SwitchEvolution.png" width="535">
 
 ## Éléments constitutifs du projet
 
