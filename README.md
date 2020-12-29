@@ -18,7 +18,8 @@ Des transitions existent aussi entre les Pokémon et leur évolutions au sein de
 
 <img src="Screenshot/LoginPageError.PNG" width="250">
 
-###Création de Compte
+### Création de Compte
+
 La création de compte s'effectue de la manière suivante:
 Il faut d'abord entrer ses logs dans la page d'accueil (Login et Mot de Passe)
 Puis appuyer sur le bouton New Account (un message d'avertissement s'affichera alors)
