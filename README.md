@@ -23,7 +23,8 @@ Des transitions existent aussi entre les Pokémon et leur évolutions au sein de
 La création de compte s'effectue de la manière suivante:
 Il faut d'abord entrer ses logs dans la page d'accueil (Login et Mot de Passe)
 Puis appuyer sur le bouton New Account (un message d'avertissement s'affichera alors)
-<img src="Screenshot/LoginPageCreta.PNG" width="250">
+
+<img src="Screenshot/LoginPageCreate.PNG" width="250">
 
 ### Affichage de la liste Pokemon
 
@@ -39,15 +40,15 @@ Puis appuyer sur le bouton New Account (un message d'avertissement s'affichera a
 
 ## Éléments constitutifs du projet
 
--Kotlin
--Architecture MVVM
--Clean Architecture
--Utilisation d'une BDD
--Git
--Liste d'éléments
--RecyclerView(s)
--API Rest et affichage de son contenu via la liste
--Design via l'utilisation de composants de la bibliothèque Materials
+- Kotlin
+- Architecture MVVM
+- Clean Architecture
+- Utilisation d'une BDD
+- Git
+- Liste d'éléments
+- RecyclerView(s)
+- API Rest et affichage de son contenu via la liste
+- Design via l'utilisation de composants de la bibliothèque Materials
 
 
 
