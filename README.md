@@ -3,7 +3,7 @@ Thibaut ALLAIN TC-43
 
 Projet Kotlin/Android 4A
 
-NB: Le projet est dans le fichier Projet4A, suite à un incident, il se trouve que j'avais encore des commits d'ancien projet (RecyclerViewV2, etc) dans mon buffer et j'ai pas trouver le pourquoi du comment... (ils sont présents toujours présents même après avoir commit+push (j'ai fais une vérification sur un projet en privé...))
+NB: Le projet est dans le fichier Projet4A, suite à un incident, il se trouve que j'avais encore des commits d'ancien projet (RecyclerViewV2, etc) dans mon buffer et j'ai pas trouvé le pourquoi du comment... (ils sont présents toujours présents même après avoir commit+push (j'ai fais une vérification sur un projet en privé...))
 
 ## Sujet
 
